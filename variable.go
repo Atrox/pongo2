@@ -518,6 +518,10 @@ func (v *nodeFilteredVariable) Evaluate(ctx *ExecutionContext) (*Value, *Error) 
 	return value, nil
 }
 
+func (p *Parser) ParseVariableOrLiteral() (IEvaluator, *Error) {
+	return p.parseVariableOrLiteral()
+}
+
 // IDENT | IDENT.(IDENT|NUMBER)... | IDENT[expr]...
 func (p *Parser) parseVariableOrLiteral() (IEvaluator, *Error) {
 	t := p.Current()
